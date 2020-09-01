@@ -7,6 +7,16 @@
     <fragment
         android:id="@+id/music_list"
         android:name="carlos.com.carjitunes.ui.MusicListFragment"
-        android:label="DashboardFragment">
-    </fragment>
+        android:label="MusicListFragment" />
+
+
+    <fragment
+        android:id="@+id/album"
+        android:name="carlos.com.carjitunes.ui.AlbumFragment"
+        android:label="AlbumFragment" />
+
+    <action
+        android:id="@+id/action_musicListFragment_to_albumFragment"
+        app:destination="@id/album" />
+
 </navigation>

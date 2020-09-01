@@ -8,12 +8,15 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.LinearLayoutManager
 import carlos.com.carjitunes.R
+import carlos.com.carjitunes.data.model.SongData
 import carlos.com.carjitunes.extensions.hideKeyboard
 import carlos.com.carjitunes.ui.adapters.SongAdapter
 import carlos.com.carjitunes.ui.adapters.SongLoadStateAdapter
@@ -50,7 +53,7 @@ class MusicListFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        songAdapter = SongAdapter()
+        songAdapter = SongAdapter(::onClickSongItem)
 
         song_recycler.apply {
             layoutManager = LinearLayoutManager(context)
@@ -80,6 +83,13 @@ class MusicListFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun onClickSongItem(songData: SongData) {
+        findNavController().navigate(
+            R.id.action_musicListFragment_to_albumFragment,
+            bundleOf(SONG_DATA to songData)
+        )
     }
 
     private fun initToolbar(view: View) {

@@ -10,7 +10,9 @@ import carlos.com.carjitunes.R
 import carlos.com.carjitunes.data.model.SongData
 import kotlinx.android.synthetic.main.song_item.view.*
 
-class SongAdapter : PagingDataAdapter<SongData, RecyclerView.ViewHolder>(
+class SongAdapter(
+    private val listener: (SongData) -> Unit
+) : PagingDataAdapter<SongData, RecyclerView.ViewHolder>(
     SongModelComparator
 ) {
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -20,6 +22,11 @@ class SongAdapter : PagingDataAdapter<SongData, RecyclerView.ViewHolder>(
         val viewHolder = holder as SongViewHolder
         viewHolder.itemView.song_title.text = songData.trackName
         viewHolder.itemView.song_price.text = songData.trackPrice.toString()
+
+        viewHolder.itemView.view_song_item.setOnClickListener {
+            listener.invoke(songData)
+        }
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

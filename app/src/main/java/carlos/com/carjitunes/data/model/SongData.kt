@@ -10,7 +10,7 @@ data class SongData(
     val wrapperType: String?,
     val kind: String?,
     val artistId: Int?,
-    val collectionId: Int?,
+    val collectionId: Int,
     val trackId: Int,
     val artistName: String?,
     val collectionName: String?,

@@ -36,6 +36,8 @@ class Repository(
         )
     }
 
+    suspend fun getITunesAlbumSongs(albumId: String)  = service.getITunesAlbumSongs(albumId)
+
     private suspend fun insertUpdateDataFromNetwork(termSearched: String) {
         when (val result = service.getITunesSongs(termSearched)) {
             is Result.Success -> {
