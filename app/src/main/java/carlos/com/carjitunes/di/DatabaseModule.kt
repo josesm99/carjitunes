@@ -10,13 +10,13 @@ import org.koin.dsl.module
 val databaseModule = module {
 
     fun provideDatabase(application: Application): SearchSongsDatabase {
-       return Room.databaseBuilder(application, SearchSongsDatabase::class.java, "songs")
+        return Room.databaseBuilder(application, SearchSongsDatabase::class.java, "songs")
             .fallbackToDestructiveMigration()
             .build()
     }
 
-    fun provideSearchSongsDao(database:  SearchSongsDatabase): SearchSongsDao {
-        return  database.searchSongsDao
+    fun provideSearchSongsDao(database: SearchSongsDatabase): SearchSongsDao {
+        return database.searchSongsDao
     }
 
     single { provideDatabase(androidApplication()) }

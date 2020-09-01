@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">carjitunes</string>
+
+    <string name="app_name">Musica</string>
+    <string name="page_title">Canciones</string>
+    <string name="search">Buscar</string>
+
 </resources>

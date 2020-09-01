@@ -15,4 +15,4 @@ fun createRepository(
     movieAppService: ITunesSongsAppService,
     context: Context,
     dao: SearchSongsDao
-) : Repository = Repository(movieAppService, context, dao)
+): Repository = Repository(movieAppService, context, dao)

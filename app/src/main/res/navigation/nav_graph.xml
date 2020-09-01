@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/music_list">
+
+    <fragment
+        android:id="@+id/music_list"
+        android:name="carlos.com.carjitunes.ui.MusicListFragment"
+        android:label="DashboardFragment">
+    </fragment>
+</navigation>

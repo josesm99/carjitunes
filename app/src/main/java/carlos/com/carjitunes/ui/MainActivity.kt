@@ -1,7 +1,8 @@
-package carlos.com.carjitunes
+package carlos.com.carjitunes.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import carlos.com.carjitunes.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

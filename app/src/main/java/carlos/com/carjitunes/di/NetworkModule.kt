@@ -17,24 +17,24 @@ val networkModule = module {
 
 fun createMovieAppService(
     api: Api
-) : ITunesSongsAppService = ITunesSongsAppService(api)
+): ITunesSongsAppService = ITunesSongsAppService(api)
 
 fun apiService(
     retrofit: Retrofit
-) : Api =
+): Api =
     retrofit.create(Api::class.java)
 
 fun retrofit(
     okHttpClient: OkHttpClient
-) : Retrofit =
+): Retrofit =
     Retrofit.Builder()
         .baseUrl(BuildConfig.BASE_URL)
         .client(okHttpClient)
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-fun okhttpClient() : OkHttpClient =
+fun okhttpClient(): OkHttpClient =
     OkHttpClient.Builder()
-    .build()
+        .build()
 
 
