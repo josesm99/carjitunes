@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import carlos.com.carjitunes.R
 import carlos.com.carjitunes.data.model.SongData
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.song_item.view.*
 
 class SongAdapter(
@@ -22,6 +23,12 @@ class SongAdapter(
         val viewHolder = holder as SongViewHolder
         viewHolder.itemView.song_title.text = songData.trackName
         viewHolder.itemView.song_price.text = songData.trackPrice.toString()
+        viewHolder.itemView.artist_name.text = songData.artistName
+        viewHolder.itemView.album_name.text = songData.collectionName
+
+        Glide.with(viewHolder.itemView.context)
+            .load(songData!!.artworkUrl100)
+            .into(viewHolder.itemView.song_img)
 
         viewHolder.itemView.view_song_item.setOnClickListener {
             listener.invoke(songData)

@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.paging.LoadState
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import carlos.com.carjitunes.R
 import carlos.com.carjitunes.data.model.SongData
@@ -56,13 +57,19 @@ class MusicListFragment : Fragment() {
         songAdapter = SongAdapter(::onClickSongItem)
 
         song_recycler.apply {
-            layoutManager = LinearLayoutManager(context)
+            val linearLayoutManager = LinearLayoutManager(context)
+            layoutManager = linearLayoutManager
             setHasFixedSize(true)
 
             adapter = songAdapter.withLoadStateFooter(
                 footer = SongLoadStateAdapter { songAdapter.retry() }
             )
+
+            val dividerItemDecoration = DividerItemDecoration(requireContext(), linearLayoutManager.orientation)
+            song_recycler.addItemDecoration(dividerItemDecoration)
         }
+
+
 
         songAdapter.addLoadStateListener { loadState ->
 
